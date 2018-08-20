@@ -1,5 +1,7 @@
 package testsuites;
 
+import static org.testng.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -116,7 +118,13 @@ public class BranchHomePageTests extends TestBase{
 		bhp.ClickOnFooterCompanyCONTACTLink();
 		cp = new ContactPage(driver);
 		cp.FillContactForm(EmailID, Subject,Name, Description, RequestType);
-		Assert.assertEquals(cp.getTicketCreateMessage(),"Your ticket has been created.");
+		if(cp.getTicketCreateMessage().contains("Your ticket has been created.")) {
+			Assert.assertTrue(true);
+		}else {
+			Assert.assertTrue(false);
+		}
+			
+		//Assert.assertEquals(cp.getTicketCreateMessage(),"Your ticket has been created.");
 	}
 }
 	
