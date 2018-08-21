@@ -117,6 +117,7 @@ public class BranchHomePageTests extends TestBase{
 	public void FillContactPageForDemo(String EmailID, String Subject,String Name, String Description, String RequestType) throws InterruptedException {
 		bhp.ClickOnFooterCompanyCONTACTLink();
 		cp = new ContactPage(driver);
+		
 		cp.FillContactForm(EmailID, Subject,Name, Description, RequestType);
 		if(cp.getTicketCreateMessage().contains("Your ticket has been created.")) {
 			Assert.assertTrue(true);
