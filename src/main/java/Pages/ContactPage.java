@@ -51,7 +51,7 @@ public class ContactPage {
 			FillContactName(Name);
 			FillContactDescription(Description);
 			SelectContactRequestTypeDropDown(RequestType);
-			//ClickContactSubmitButton();
+			ClickContactSubmitButton();
 			
 		}
 		private void FillContactEmailID(String EmailID) {
