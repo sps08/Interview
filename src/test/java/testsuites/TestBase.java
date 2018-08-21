@@ -1,5 +1,6 @@
 package testsuites;
 
+import java.io.IOException;
 import java.lang.reflect.Method;
 
 import org.openqa.selenium.WebDriver;
@@ -88,8 +89,12 @@ public class TestBase  {
 	}
 	
 	@AfterSuite
-	public void teardown() {
+	public void teardown() throws IOException {
 	reports.flush();
+	Runtime runTime = Runtime.getRuntime();
+	System.out.println("get");
+	System.out.println(System.getProperty("user.dir")+"/BranchAutomationResults.html");
+    Process process = runTime.exec(System.getProperty("user.dir")+"/BranchAutomationResults.html");
 		
 		 if (driver != null) {
 	          try {
