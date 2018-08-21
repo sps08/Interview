@@ -1,5 +1,6 @@
 package testsuites;
 
+import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 import java.util.ArrayList;
@@ -97,6 +98,7 @@ public class BranchHomePageTests extends TestBase{
 			AllList.removeAll(MasterList);
 			AllList.toString();
 			extentlogger.log(LogStatus.INFO,"<b>"+AllList.toString() + " are not assigned to any department</b>");
+			assertFalse(false);
 		}
 		//Assert.assertEquals(AllList, MasterList);
 		
