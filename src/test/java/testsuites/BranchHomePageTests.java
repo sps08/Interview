@@ -84,23 +84,22 @@ public class BranchHomePageTests extends TestBase{
 	}
 	
 	@Test(priority=7 ,dependsOnMethods={"getNamesOfEmployeesInAllDept","ClickOnEveryDeptTabAndFetchTotalNoOfEmployees"}, description="Compare the No of Employees in All tab and Other Dept tabs")
-	public void CompareCountinAllTabAndOthersTabs() {
-		extentlogger.log(LogStatus.INFO, "Matching No of Employees Count in ALL tab and Count of employees in Other Tabs");
+	public void IsCountinAllTabAndOthersTabsEqual() {
+		extentlogger.log(LogStatus.INFO, "<b>No of Employees in 'ALL' tab   "+AllList.size() +"  and No of employees in 'Other Tabs'  " + MasterList.size() );
 		Assert.assertEquals(AllDeptCount, AllOthersDeptsCount);
 		
 	}
 	
 	@Test(priority=8 ,dependsOnMethods={"getNamesOfEmployeesInAllDept","ClickOnEveryDeptTabAndFetchTotalNoOfEmployees"}, description ="Compare the Number of employees in All tabs and Other departments")
-	public void CompareNamesinAllTabsAndOthersTabs() {
+	public void IsNamesinAllTabsAndOthersTabsEqual() {
 		if(AllList.equals(MasterList)) {
-			Assert.assertEquals(AllList, MasterList);
+			Assert.assertTrue(true);
 			extentlogger.log(LogStatus.INFO,"<b>All department and Other Department has same No of employees</b>");
 			
 		}else {
-			Assert.assertEquals(AllList, MasterList);
 			AllList.removeAll(MasterList);
-			AllList.toString();
 			extentlogger.log(LogStatus.INFO,"<b>"+AllList.toString() + " are not assigned to any department</b>");
+			Assert.assertTrue(false);
 		}
 		//Assert.assertEquals(AllList, MasterList);
 		
@@ -116,7 +115,7 @@ public class BranchHomePageTests extends TestBase{
 	}
 
 	
-	@Test(priority=7,alwaysRun = true)
+	@Test(priority=9,alwaysRun = true)
 	@Parameters({"EmailID","Description","RequestType","Subject","Name"})
 	public void FillContactPageForDemo(String EmailID, String Subject,String Name, String Description, String RequestType) throws InterruptedException {
 		bhp.ClickOnFooterCompanyCONTACTLink();
