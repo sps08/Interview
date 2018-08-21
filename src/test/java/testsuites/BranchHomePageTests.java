@@ -98,7 +98,7 @@ public class BranchHomePageTests extends TestBase{
 			AllList.removeAll(MasterList);
 			AllList.toString();
 			extentlogger.log(LogStatus.INFO,"<b>"+AllList.toString() + " are not assigned to any department</b>");
-			assertFalse(false);
+			assertTrue(false);
 		}
 		//Assert.assertEquals(AllList, MasterList);
 		
@@ -126,7 +126,7 @@ public class BranchHomePageTests extends TestBase{
 		}else {
 			Assert.assertTrue(false);
 		}
-			
+
 		//Assert.assertEquals(cp.getTicketCreateMessage(),"Your ticket has been created.");
 	}
 }
