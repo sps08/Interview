@@ -91,11 +91,6 @@ public class TestBase  {
 	@AfterSuite
 	public void teardown() throws IOException {
 	reports.flush();
-	Runtime runTime = Runtime.getRuntime();
-	System.out.println("get");
-	System.out.println(System.getProperty("user.dir")+"/BranchAutomationResults.html");
-    Process process = runTime.exec(System.getProperty("user.dir")+"/BranchAutomationResults.html");
-		
 		 if (driver != null) {
 	          try {
 	        	 driver.close();

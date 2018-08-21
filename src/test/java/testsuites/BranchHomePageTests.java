@@ -93,12 +93,14 @@ public class BranchHomePageTests extends TestBase{
 	@Test(priority=8 ,dependsOnMethods={"getNamesOfEmployeesInAllDept","ClickOnEveryDeptTabAndFetchTotalNoOfEmployees"}, description ="Compare the Number of employees in All tabs and Other departments")
 	public void CompareNamesinAllTabsAndOthersTabs() {
 		if(AllList.equals(MasterList)) {
-			Assert.assertTrue(true);
+			Assert.assertEquals(AllList, MasterList);
+			extentlogger.log(LogStatus.INFO,"<b>All department and Other Department has same No of employees</b>");
+			
 		}else {
+			Assert.assertEquals(AllList, MasterList);
 			AllList.removeAll(MasterList);
 			AllList.toString();
 			extentlogger.log(LogStatus.INFO,"<b>"+AllList.toString() + " are not assigned to any department</b>");
-			assertTrue(false);
 		}
 		//Assert.assertEquals(AllList, MasterList);
 		
