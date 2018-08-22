@@ -1,5 +1,7 @@
 package testsuites;
 
+import java.awt.Desktop;
+import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
 
@@ -25,6 +27,7 @@ import org.testng.annotations.AfterMethod;
 import Browsers.BrowserAdapter;
 import utils.ExtentManager;
 import utils.FrameworkConfig;
+import utils.SeleniumScreenshot;
 
 public class TestBase  {
 	WebDriver driver;
@@ -74,11 +77,13 @@ public class TestBase  {
 		    case ITestResult.FAILURE:
 		        //System.out.println("======FAIL=====");
 		        extentlogger.log(LogStatus.FAIL, result.getMethod().getMethodName() + "-- Failed");
+		        extentlogger.log(LogStatus.FAIL, extentlogger.addScreenCapture(SeleniumScreenshot.saveSeleniumScreenshots(driver,result.getMethod().getMethodName())));
 		        break;
 
 		    case ITestResult.SKIP:
 		       // System.out.println("======SKIP BLOCKED=====");
 		        extentlogger.log(LogStatus.SKIP, result.getMethod().getMethodName() + "-- Skipped");
+		       
 		        break;
 
 		    default:
@@ -90,7 +95,16 @@ public class TestBase  {
 	
 	@AfterSuite
 	public void teardown() throws IOException {
+	
 	reports.flush();
+	reports.close();
+	File resultfile = new File(System.getProperty("user.dir")+FrameworkConfig.getPropertyMap().get("ReportPath"));
+	System.out.println(resultfile);
+	try {
+		Desktop.getDesktop().browse(resultfile.toURI());
+	}catch(IOException e){
+		e.printStackTrace();
+	}
 		 if (driver != null) {
 	          try {
 	        	 driver.close();
