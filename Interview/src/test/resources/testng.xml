@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="branchTests" >
+	<test name = "Btest01" enabled="true">
+	<parameter name="EmailID" value="singh.satinder0887@gmail.com"/>
+	<parameter name="Name" value="Satinder"/>
+	<parameter name="Subject" value="Demo Test Case QA Automation"/>
+	<parameter name="RequestType" value="Billing"/>
+	<parameter name="Description" value="Demo to Show example of data paramterization in TESTNG- Satinder"/>
+		<classes>
+			<class  name ="testsuites.BranchHomePageTests"/>
+		</classes>
+	</test>
+</suite>
