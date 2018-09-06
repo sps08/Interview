@@ -48,5 +48,9 @@ public class GenericHelpers {
 		wait.until(ExpectedConditions.visibilityOf(element));
 		//Log.info("element found..."+element.getText());
 	}
+	
+	public void pressEnterKey() {
+		
+	}
 
 }

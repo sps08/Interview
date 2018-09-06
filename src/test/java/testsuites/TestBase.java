@@ -57,7 +57,7 @@ public class TestBase  {
 	public void  beforeMethod(Method method) {
 		 Test test = method.getDeclaredAnnotation(Test.class);
 		//TCName = this.getClass().getSimpleName() +"-"+ method.getName();
-		 TCName = "Branch - " +method.getName();
+		 TCName = "LongView - " +method.getName();
 		extentlogger = reports.startTest(TCName);
 		extentlogger.log(LogStatus.INFO,"<b>METHOD NAME: </b>"+ method.getName());
 		//System.out.println("in before method");
@@ -107,9 +107,9 @@ public class TestBase  {
 	}
 		 if (driver != null) {
 	          try {
-	        	 driver.close();
+	        	// driver.close();
 	          } finally {
-	             driver.quit(); 
+	             //driver.quit(); 
 	          }
 	        }    
 
