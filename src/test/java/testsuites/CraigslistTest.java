@@ -67,7 +67,7 @@ public class CraigslistTest extends TestBase {
 		Response response = given().redirects().follow(false).log().all()
 		//.auth().preemptive().basic("satinderworks@gmail.com", "Mycode@Mycode")
 		 .auth().form("satinderworks@gmail.com", "Mycode@Mycode" ,FormAuthConfig.formAuthConfig().springSecurity())
-		.when().get("/login/home").then().statusCode(200).extract().response();
+		.when().get("/login/home").then().statusCode(302).extract().response();
 		
 	//System.out.println(response.getStatusCode());
 	System.out.println(response.getSessionId());
